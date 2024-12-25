@@ -1,14 +1,16 @@
+from masks import get_mask_account
+from masks import get_mask_card_number
+
 def mask_account_card(account_card: str) -> str:
     '''функция возвращает замаскированный номер'''
     if account_card[0:4] == 'Счет':
-        mask_account = '**'+account_card[-4:]
-        return mask_account
+        return 'Счет ' + get_mask_account(account_card)
 
     else:
-        mask_card_number = account_card[0:7] + '******' + account_card[-4:]
-        return mask_card_number: str
+        card_number = account_card[-16:]
+        return account_card[0:-16] + get_mask_card_number(card_number)
 
 def get_date(date_data: str) -> str:
     '''функция форматирует данные о дате'''
-    new_date = date_data[8;10]+'.'+date_data[5;7]+'.'+date_data[0:4]
+    new_date = date_data[8:10]+'.'+date_data[5:7]+'.'+date_data[0:4]
     return new_date
