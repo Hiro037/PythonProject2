@@ -1,4 +1,4 @@
-from src.masks import get_mask_account, get_mask_card_number
+from masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(account_card: str) -> str:
@@ -9,7 +9,6 @@ def mask_account_card(account_card: str) -> str:
     else:
         card_number = account_card[-16:]
         return account_card[0:-16] + get_mask_card_number(card_number)
-
 
 def get_date(date_data: str) -> str:
     '''функция форматирует данные о дате'''
