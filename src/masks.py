@@ -1,5 +1,6 @@
 from typing import Union
 
+
 def get_mask_card_number(card_number: Union[str, int]) -> str:
     '''принимает на вход номер карты и возвращает ее маску'''
     mask_card_number = str(card_number)[0:6]+'******'+str(card_number)[-4:]
