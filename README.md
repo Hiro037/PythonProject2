@@ -34,3 +34,4 @@ executed_transactions = filter_by_state(transactions)
 # Пример использования sort_by_date
 sorted_transactions = sort_by_date(transactions)
 ```
+
