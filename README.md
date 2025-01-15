@@ -35,3 +35,6 @@ executed_transactions = filter_by_state(transactions)
 sorted_transactions = sort_by_date(transactions)
 ```
 
+## Тестирование
+
+В папке tests присутствуют тесты всех реализованных в проекте функций. Тесты релизованы при помощи фреймворка pytest.
