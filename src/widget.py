@@ -10,6 +10,7 @@ def mask_account_card(account_card: str) -> str:
         card_number = account_card[-16:]
         return account_card[0:-16] + get_mask_card_number(card_number)
 
+
 def get_date(date_data: str) -> str:
     '''функция форматирует данные о дате'''
     new_date = date_data[8:10]+'.'+date_data[5:7]+'.'+date_data[0:4]

@@ -1,9 +1,12 @@
-from generators import transaction_descriptions, card_number_generator, filter_by_currency
+from typing import Dict, List
+
 import pytest
+
+from generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
 @pytest.fixture
-def list_():
+def list_() -> List[Dict]:
     return [
         {
             "id": 939719570,
@@ -81,12 +84,17 @@ def list_():
             "to": "Счет 14211924144426031657"
         }
     ]
+
+
 @pytest.fixture
-def empty_list():
+def empty_list() -> List:
     return []
 
-@pytest.mark.parametrize('expectedresultsUSD',[
-    [{      "id": 939719570,
+
+@pytest.mark.parametrize('expectedresultsUSD', [
+    [
+        {
+            "id": 939719570,
             "state": "EXECUTED",
             "date": "2018-06-30T02:08:58.425572",
             "operationAmount": {
@@ -132,25 +140,25 @@ def empty_list():
         }
     ]
 ])
-def test_filter_by_currency(list_, expectedresultsUSD):
+def test_filter_by_currency(list_: List, expectedresultsUSD: List[Dict]) -> None:
     gen = filter_by_currency(list_, "USD")
     for result in expectedresultsUSD:
         assert next(gen) == result
 
 
-def test_filter_by_currency_empty(empty_list):
+def test_filter_by_currency_empty(empty_list: List) -> None:
     gen = filter_by_currency(empty_list, 'USD')
     with pytest.raises(StopIteration):
         next(gen)
 
 
-def test_filter_by_currency_with_no_currency(list_):
+def test_filter_by_currency_with_no_currency(list_: List) -> None:
     gen = filter_by_currency(list_, 'EUR')
     with pytest.raises(StopIteration):
         next(gen)
 
 
-def test_transaction_descriptions(list_):
+def test_transaction_descriptions(list_: List) -> None:
     gen = transaction_descriptions(list_)
     assert next(gen) == "Перевод организации"
     assert next(gen) == "Перевод со счета на счет"
@@ -160,7 +168,8 @@ def test_transaction_descriptions(list_):
     with pytest.raises(StopIteration):
         next(gen)
 
-def test_transaction_descriptions_empty(empty_list):
+
+def test_transaction_descriptions_empty(empty_list: List) -> None:
     gen = transaction_descriptions(empty_list)
     with pytest.raises(StopIteration):
         next(gen)
@@ -181,7 +190,7 @@ def test_transaction_descriptions_empty(empty_list):
         '9999 9999 9999 9999',
     ]),
 ])
-def test_card_number_generator(start, end, expected_values):
+def test_card_number_generator(start: int, end: int, expected_values: str) -> None:
     gen = card_number_generator(start, end)
     for expected in expected_values:
         assert next(gen) == expected
