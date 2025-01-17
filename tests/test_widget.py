@@ -7,7 +7,7 @@ from src.widget import get_date, mask_account_card
     ("2024-03-11T02:26:18.671407", "11.03.2024"),
     ("2025-06-29T02:26:18.671407", "29.06.2025")
 ])
-def test_get_date(string1: str, expected_result1: str):
+def test_get_date(string1: str, expected_result1: str) -> None:
     assert get_date(string1) == expected_result1
     assert get_date(string1) == expected_result1
 
@@ -17,7 +17,7 @@ def test_get_date(string1: str, expected_result1: str):
     ('Visa Classic 6831982476737658', 'Visa Classic 683198******7658'),
     ('Счет 73654108430135874305', 'Счет **4305')
 ])
-def test_mask_account_card(string2: str, expected_result2: str):
+def test_mask_account_card(string2: str, expected_result2: str) -> None:
     assert mask_account_card(string2) == expected_result2
     assert mask_account_card(string2) == expected_result2
     assert mask_account_card(string2) == expected_result2
