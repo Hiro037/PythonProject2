@@ -3,7 +3,8 @@ from typing import Dict, Generator, List
 
 def filter_by_currency(transactions: List[Dict], currency: str) -> Generator[Dict, None, None]:
     '''Функция принимает на вход список словарей, представляющих транзакции.
-    Возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной (например, USD).'''
+    Возвращает итератор, который поочередно выдает транзакции,
+    где валюта операции соответствует заданной (например, USD).'''
     result = (
         transaction
         for transaction in transactions
