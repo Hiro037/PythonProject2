@@ -1,5 +1,4 @@
 from functools import wraps
-import traceback
 
 def log(filename: str = None):
     def decorator(func):
@@ -14,6 +13,7 @@ def log(filename: str = None):
                 log_message = (f"{func.__name__} error: {type(e).__name__}. "
                                f"Inputs: {args}, {kwargs}\n")
                 _write_log(log_message, filename)
+                raise
         return wrapper
     return decorator
 
