@@ -1,6 +1,9 @@
 from functools import wraps
 
+
 def log(filename: str = None):
+    '''Декоратор логирует начало и конец выполнения функции,
+    а также ее результаты или возникшие ошибки.'''
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -16,6 +19,7 @@ def log(filename: str = None):
                 raise
         return wrapper
     return decorator
+
 
 def _write_log(log_message: str, filename: str = None):
     if filename:

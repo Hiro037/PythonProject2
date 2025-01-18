@@ -1,13 +1,17 @@
 import pytest
+
 from decorators import log
+
 
 @log()
 def add(a, b):
     return a + b
 
+
 @log()
 def divide(a, b):
     return a / b
+
 
 def test_log_successful_function_execution(capsys):
     """Тест успешного выполнения функции с выводом в консоль."""
@@ -26,4 +30,3 @@ def test_log_function_exception(capsys):
     captured = capsys.readouterr()
     assert "divide error: ZeroDivisionError." in captured.out
     assert "Inputs: (10, 0), {}" in captured.out
-
