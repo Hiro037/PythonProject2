@@ -1,6 +1,6 @@
 import json
 from json import JSONDecodeError
-
+from external_api import currency_conversion
 
 def fin_tranzactions(fin_data_json):
     try:
@@ -17,3 +17,12 @@ def fin_tranzactions(fin_data_json):
     except FileNotFoundError:
         print('Файл не найден')
         return []
+
+
+def amount_transactions(transaction):
+    if transaction["operationAmount"]["currency"]["code"] == 'RUB':
+        message = f'Сумма транзакции: {float(transaction["operationAmount"]["amount"])} рублей.'
+        return message
+    else:
+        amount = currency_conversion(float(transaction["operationAmount"]["amount"]), transaction["operationAmount"]["currency"]["code"])
+        return amount
