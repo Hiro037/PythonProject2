@@ -13,6 +13,8 @@ def currency_conversion(amount, currency_from, currency_to = "RUB", API_KEY = AP
     }
     payload = {}
     url = f"https://api.apilayer.com/exchangerates_data/convert?to={currency_to}&from={currency_from}&amount={amount}"
-    request_result = requests.request("GET", url, headers=headers, data = payload)
-    result = json.loads(request_result.text)
+    request_result = requests.get(url, headers=headers, data = payload)
+    result = request_result.json()
     return result['result']
+
+print(currency_conversion(100, "USD"))

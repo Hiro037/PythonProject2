@@ -1,8 +1,8 @@
 import json
 from json import JSONDecodeError
-from external_api import currency_conversion
+from src.external_api import currency_conversion
 
-def fin_tranzactions(fin_data_json):
+def fin_transactions(fin_data_json):
     try:
         with open(f'{fin_data_json}', encoding='utf-8') as f:
             try:
@@ -25,4 +25,5 @@ def amount_transactions(transaction):
         return message
     else:
         amount = currency_conversion(float(transaction["operationAmount"]["amount"]), transaction["operationAmount"]["currency"]["code"])
-        return amount
+        message = f'Сумма транзакции: {amount} рублей.'
+        return message
