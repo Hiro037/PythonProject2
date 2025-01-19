@@ -1,7 +1,8 @@
 import json
+
 import pytest
-from src.utils import fin_transactions, amount_transactions
-from unittest.mock import patch
+
+from src.utils import amount_transactions, fin_transactions
 
 
 @pytest.fixture
@@ -10,11 +11,13 @@ def valid_json_file(tmp_path):
     file.write_text(json.dumps([{"id": 1, "operation": "Payment"}, {"id": 2, "operation": "Transfer"}]))
     return str(file)
 
+
 @pytest.fixture
 def empty_file(tmp_path):
     file = tmp_path / "empty.json"
     file.write_text("")
     return str(file)
+
 
 @pytest.fixture
 def invalid_json_file(tmp_path):
@@ -22,10 +25,12 @@ def invalid_json_file(tmp_path):
     file.write_text("{invalid_json: true")
     return str(file)
 
+
 def test_fin_transactions_valid_json(valid_json_file):
     """Тест для файла с валидным JSON."""
     result = fin_transactions(valid_json_file)
     assert result == [{"id": 1, "operation": "Payment"}, {"id": 2, "operation": "Transfer"}]
+
 
 def test_fin_transactions_empty_file(empty_file, capsys):
     """Тест для пустого файла."""
@@ -34,12 +39,14 @@ def test_fin_transactions_empty_file(empty_file, capsys):
     assert result == []
     assert "Ошибка декодирования" in captured.out
 
+
 def test_fin_transactions_invalid_json(invalid_json_file, capsys):
     """Тест для файла с некорректным JSON."""
     result = fin_transactions(invalid_json_file)
     captured = capsys.readouterr()
     assert result == []
     assert "Ошибка декодирования" in captured.out
+
 
 def test_fin_transactions_file_not_found(capsys):
     """Тест для отсутствующего файла."""
