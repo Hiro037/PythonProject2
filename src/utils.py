@@ -1,10 +1,9 @@
 import json
+import logging
+import os
 from json import JSONDecodeError
 
 from src.external_api import currency_conversion
-
-import logging
-import os
 
 current_dir = os.path.abspath(os.path.dirname(__file__))
 base_dir = os.path.dirname(current_dir)
@@ -17,6 +16,7 @@ logging.basicConfig(level=logging.DEBUG,
                     encoding='utf-8')
 
 logger = logging.getLogger(__name__)
+
 
 def fin_transactions(fin_data_json):
     '''Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях.'''
@@ -42,9 +42,9 @@ def fin_transactions(fin_data_json):
         return []
 
 
-def amount_transactions(transaction):
+def amount_transactions(transaction: list):
     '''Функция  принимает на вход транзакцию и возвращает сумму транзакции в рублях'''
-    '''В случае, если транзакция проведена не в рублях, 
+    '''В случае, если транзакция проведена не в рублях,
     функция обращается к функции currency_conversion из src.external_api'''
     logger.info('Функция начала своё выполнение')
     try:

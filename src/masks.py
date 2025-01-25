@@ -1,6 +1,6 @@
-from typing import Union
 import logging
 import os
+from typing import Union
 
 current_dir = os.path.abspath(os.path.dirname(__file__))
 base_dir = os.path.dirname(current_dir)
@@ -13,6 +13,7 @@ logging.basicConfig(level=logging.DEBUG,
                     encoding='utf-8')
 
 logger = logging.getLogger(__name__)
+
 
 def get_mask_card_number(card_number: Union[str, int]) -> str:
     '''принимает на вход номер карты и возвращает ее маску'''
@@ -35,19 +36,18 @@ def get_mask_card_number(card_number: Union[str, int]) -> str:
         return 'Неверный формат номера'
 
 
-
 def get_mask_account(account: Union[str, int]) -> str:
     '''принимает на вход номер счета и возвращает его маску'''
     logger.info('Принят номер счёта')
     try:
         int(account)
         try:
-                logger.info('Функция вернула маску номера счета')
-                mask_account = '**'+str(account)[-4:]
-                return mask_account
+            logger.info('Функция вернула маску номера счета')
+            mask_account = '**'+str(account)[-4:]
+            return mask_account
         except Exception as e:
-                logger.warning(f'Произошла ошибка: {e}')
-                pass
+            logger.warning(f'Произошла ошибка: {e}')
+            pass
     except Exception:
         logger.warning('Введён неправильный формат номера')
         return 'Неверный формат номера'
