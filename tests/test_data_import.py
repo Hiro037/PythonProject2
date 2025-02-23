@@ -1,7 +1,6 @@
-import pytest
-import pandas as pd
-from io import StringIO
 from unittest.mock import mock_open, patch
+
+import pandas as pd
 
 # Импорт тестируемых функций (замените 'transactions' на актуальное имя модуля)
 from src.data_import import read_csv_transactions, read_excel_transactions

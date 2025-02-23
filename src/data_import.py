@@ -1,4 +1,5 @@
 import csv
+
 import pandas as pd
 
 
@@ -26,6 +27,7 @@ def read_csv_transactions(file_path: str) -> list[dict]:
         print(f"Произошла ошибка при чтении файла: {e}")
         return []
 
+
 def read_excel_transactions(file_path: str) -> list[dict]:
     """
     Считывает финансовые транзакции из Excel-файла.
@@ -48,6 +50,3 @@ def read_excel_transactions(file_path: str) -> list[dict]:
     except Exception as e:
         print(f"Произошла ошибка при чтении файла: {e}")
         return []
-
-
-
