@@ -1,15 +1,8 @@
-from src.masks import get_mask_account
-from src.masks import get_mask_card_number
 from src.data_import import read_csv_transactions, read_excel_transactions
-from src.utils import fin_transactions
 from src.processing import filter_by_state, sort_by_date
-from src.widget import get_date, mask_account_card
 from src.regex_utils import filter_operations_by_description
-#user_card_number = input('Введите номер карты:')
-#print(get_mask_card_number(user_card_number))
-
-#user_account_number = input('Введите номер счета:')
-#print(get_mask_account(user_account_number))
+from src.utils import fin_transactions
+from src.widget import get_date, mask_account_card
 
 
 def main():
@@ -67,7 +60,6 @@ def main():
         else:
             print("Неверный ввод. По умолчанию сортировка по возрастанию.")
             ascending = False
-
 
         filtered_transactions = sort_by_date(filtered_transactions, ascending)
 

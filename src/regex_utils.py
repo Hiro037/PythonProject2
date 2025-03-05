@@ -23,6 +23,7 @@ def filter_operations_by_description(operations, search_pattern):
 
     return filtered_operations
 
+
 def count_operations_by_category(transactions, categories):
     """
     Подсчитывает количество операций для каждой категории.
@@ -32,7 +33,8 @@ def count_operations_by_category(transactions, categories):
     categories (list): Список категорий операций, по которым нужно вести подсчет.
 
     Возвращает:
-    dict: Словарь, где ключи — названия категорий, а значения — количество операций, в описании которых встречается соответствующая категория.
+    dict: Словарь, где ключи — названия категорий, а значения — количество операций,
+     в описании которых встречается соответствующая категория.
     """
     category_counts = {}
 
