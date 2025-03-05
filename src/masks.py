@@ -24,6 +24,7 @@ def get_mask_card_number(card_number: Union[str, int]) -> str:
             try:
                 logger.info('Функция вернула маску номера карты')
                 mask_card_number = str(card_number)[0:6]+'******'+str(card_number)[-4:]
+                mask_card_number = str(card_number)[0:4] + ' ' + str(card_number)[4:6] + '** **** ' + str(card_number)[-4:]
                 return mask_card_number
             except Exception as e:
                 logger.warning(f'Произошла ошибка: {e}')

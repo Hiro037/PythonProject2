@@ -1,0 +1,14 @@
+2025-03-05 15:01:13,115 - utils.py - fin_transactions - INFO - Функция начала своё выполнение
+2025-03-05 15:01:13,121 - utils.py - fin_transactions - INFO - Функция завершила своё выполнение без ошибок
+2025-03-05 15:01:30,366 - masks.py - get_mask_account - INFO - Принят номер счёта
+2025-03-05 15:01:30,366 - masks.py - get_mask_account - INFO - Функция вернула маску номера счета
+2025-03-05 15:01:30,367 - masks.py - get_mask_account - INFO - Принят номер счёта
+2025-03-05 15:01:30,367 - masks.py - get_mask_account - INFO - Функция вернула маску номера счета
+2025-03-05 15:01:30,367 - masks.py - get_mask_account - INFO - Принят номер счёта
+2025-03-05 15:01:30,367 - masks.py - get_mask_account - INFO - Функция вернула маску номера счета
+2025-03-05 15:01:30,368 - masks.py - get_mask_account - INFO - Принят номер счёта
+2025-03-05 15:01:30,368 - masks.py - get_mask_account - INFO - Функция вернула маску номера счета
+2025-03-05 15:01:30,368 - masks.py - get_mask_account - INFO - Принят номер счёта
+2025-03-05 15:01:30,368 - masks.py - get_mask_account - INFO - Функция вернула маску номера счета
+2025-03-05 15:01:30,368 - masks.py - get_mask_account - INFO - Принят номер счёта
+2025-03-05 15:01:30,368 - masks.py - get_mask_account - INFO - Функция вернула маску номера счета
