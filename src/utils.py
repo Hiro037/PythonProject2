@@ -18,12 +18,12 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 
-def fin_transactions(fin_data_json):
+def fin_transactions(fin_data_json: str):
     '''Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях.'''
     ''' Если файл пустой, содержит не список или не найден, функция возвращает пустой список.'''
     logger.info('Функция начала своё выполнение')
     try:
-        with open(f'{fin_data_json}', encoding='utf-8') as f:
+        with open(fin_data_json, encoding='utf-8') as f:
             try:
                 logger.info('Функция завершила своё выполнение без ошибок')
                 fin_data = json.load(f)

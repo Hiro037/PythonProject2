@@ -6,6 +6,8 @@ def mask_account_card(account_card: str) -> str:
     if account_card.startswith('Счет '):
         account_number = account_card[5:]
         return 'Счет ' + get_mask_account(account_number)
+    elif len(account_card) < 4:
+        return ''
     else:
         card_number = account_card[-16:]
         return account_card[0:-16] + get_mask_card_number(card_number)

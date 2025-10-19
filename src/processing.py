@@ -6,9 +6,9 @@ from src.widget import get_date
 def filter_by_state(list_of_dictionaries: list, state: str = 'EXECUTED') -> list:
     '''функция принимает список словарей и сортирует по значению ключа state'''
     final_list = []
-    for list_ in list_of_dictionaries:
-        if list_['state'] == state:
-            final_list.append(list_)
+    for dict_ in list_of_dictionaries:
+        if dict_.get('state') == state:
+            final_list.append(dict_)
     return final_list
 
 

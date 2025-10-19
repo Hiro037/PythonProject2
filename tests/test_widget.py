@@ -13,8 +13,8 @@ def test_get_date(string1: str, expected_result1: str) -> None:
 
 
 @pytest.mark.parametrize("string2, expected_result2", [
-    ('Maestro 1596837868705199', 'Maestro 159683******5199'),
-    ('Visa Classic 6831982476737658', 'Visa Classic 683198******7658'),
+    ('Maestro 1596837868705199', 'Maestro 1596 83** **** 5199'),
+    ('Visa Classic 6831982476737658', 'Visa Classic 6831 98** **** 7658'),
     ('Счет 73654108430135874305', 'Счет **4305')
 ])
 def test_mask_account_card(string2: str, expected_result2: str) -> None:
